@@ -1,0 +1,204 @@
+:root {
+  --color-white: #fff;
+  --color-grey: #c4c4c4;
+}
+
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* End CSS Reset */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-size: 21px 21px;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image: radial-gradient(#444cf7 1.05px, #e5e5f7 1.05px);
+  background-size: 21px 21px;
+}
+
+.lights-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 5rem;
+}
+
+.lights-label {
+  background-color: black;
+  width: 4.2rem;
+  height: 2.2rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0.3rem 0.4rem;
+}
+
+.lights-label::after {
+  content: "";
+  display: block;
+  width: 1.6rem;
+  aspect-ratio: 1/1;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.lights-input {
+  display: none;
+}
+
+.lights-input:checked + .lights-label {
+  background-color: white;
+}
+
+.lights-input:checked + .lights-label::after {
+  background-color: green;
+  transform: translateX(2.1rem);
+}
+
+.card {
+  min-width: 35rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 0.4rem black;
+  position: relative;
+}
+
+.lights {
+  position: absolute;
+  top: -7px; /* يطلع فوق الكارد */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.bulb-red {
+  animation: party 0.5s infinite alternate;
+}
+.bulb-yellow {
+  animation: party 0.5s infinite alternate-reverse;
+}
+
+@keyframes party {
+  from {
+    fill: #ff1111;
+  }
+  to {
+    fill: #f3ea19;
+  }
+}
+
+.container:has(.lights-input:checked) .lights {
+  opacity: 1;
+  visibility: visible;
+}
+.top {
+  height: 10rem;
+  background-color: #e5e5f7;
+  opacity: 0.9;
+  background-image:
+    repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px),
+    repeating-linear-gradient(#444cf755, #444cf7);
+}
+
+.middle {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -6rem;
+  z-index: 1;
+}
+
+.pic {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 0.4rem solid #fff;
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 2.2rem;
+}
+
+.profession {
+  font-size: 1.6rem;
+}
+
+.bottom {
+  display: flex;
+  margin-top: 3rem;
+  border-top: 0.1rem solid var(--color-grey);
+}
+
+.columns {
+  flex: 1;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+}
+
+.columns:nth-child(2) {
+  border-right: 0.1rem solid var(--color-grey);
+  border-left: 0.1rem solid var(--color-grey);
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 1.2rem;
+}
